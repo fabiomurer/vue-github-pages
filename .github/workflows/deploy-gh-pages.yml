@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 25
-      - run: npm ci
+      - run: npm ci # like install but for automation
       - run: npm run build
       - name: Upload artifact
         # https://github.com/actions/upload-pages-artifact
@@ -38,6 +38,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment
         # https://github.com/actions/deploy-pages
         uses: actions/deploy-pages@v4
